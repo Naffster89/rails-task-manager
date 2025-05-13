@@ -1,0 +1,17 @@
+<h1>My Tasks</h1>
+
+<ul class="task-list">
+  <% @tasks.each do |task| %>
+    <li class="task-item">
+      <label>
+        <input type="checkbox" <%= "checked" if task.completed %> disabled>
+        <%= link_to task.title, task_path(task) %>
+      </label>
+        <%= form_with url: task_path(task), method: :delete, local: true do %>
+        <%= submit_tag "Delete", data: { confirm: "Are you sure?" }, class: "btn btn-gradient" %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new task", new_task_path, class: "btn btn-gradient" %>

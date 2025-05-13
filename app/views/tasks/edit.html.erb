@@ -1,0 +1,22 @@
+<h1>Edit Task</h1>
+
+<%= form_with model: @task, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Title" %><br>
+    <%= form.text_field :title, value: @task.title %>
+  </div>
+
+  <div>
+    <%= form.label :details, "Details" %><br>
+    <%= form.text_area :details, value: @task.details %>
+  </div>
+
+  <div>
+    <%= form.label :completed, "Completed?" %><br>
+    <%= form.check_box :completed, checked: @task.completed %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Task", class: "btn btn-gradient" %>
+  </div>
+<% end %>
